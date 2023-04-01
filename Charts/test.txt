@@ -1,0 +1,14 @@
+song res://Songs/TheCannery.mp3
+bpm 178
+
+wait 17
+loop 4
+send up down
+wait 1
+send down
+wait 1
+send left
+wait 1
+send right
+wait 1
+end

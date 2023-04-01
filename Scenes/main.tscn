@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://o5dikbqwr0dn"]
+[gd_scene load_steps=8 format=3 uid="uid://mqlc5ks7lfx7"]
 
 [ext_resource type="Texture2D" uid="uid://3ppgwf4kudcc" path="res://Sprites/DownArrow.png" id="1_ay44x"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ex4u4"]

@@ -21,6 +21,8 @@ var arrowQueues: Array[Array] = [
 	[]
 ]
 
+var chart: Dictionary
+
 var time: float = 0.0
 
 const arrowScene = preload("res://Objects/arrow.tscn")
@@ -32,15 +34,23 @@ const arrowScene = preload("res://Objects/arrow.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	schedule(ARROW.RIGHT,5.0)
-	schedule(ARROW.LEFT,5.0)
-	schedule(ARROW.UP,6.0)
-	schedule(ARROW.DOWN,6.75)
-	schedule(ARROW.DOWN,7.5)
-	schedule(ARROW.UP,7.5)
+	var parser = ChartParser.new()
+	chart = parser.loadChart("test")
+	$Song.stream = load(chart.song)
+	bpm = chart.bpm
+	for time in chart.left:
+		schedule(ARROW.LEFT,time)
+	for time in chart.right:
+		schedule(ARROW.RIGHT,time)
+	for time in chart.up:
+		schedule(ARROW.UP,time)
+	for time in chart.down:
+		schedule(ARROW.DOWN,time)
+	$Song.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# do arrow spawning stuff
 	time += delta
 	for arrow in range(4):
 		if hasSchedule(arrow,time):
@@ -50,6 +60,27 @@ func _process(delta):
 			add_child(newArrow)
 			newArrow.position = $ArrowSpawners.get_node(arrowNames[arrow]).position
 			newArrow.direction = arrow
+	# do arrow removing stuff
+	if Input.is_action_just_pressed("up"):
+		if $ArrowAreas/Up.get_overlapping_areas().is_empty():
+			pass # lose condition
+		else:
+			$ArrowAreas/Up.get_overlapping_areas()[0].get_parent().queue_free()
+	if Input.is_action_just_pressed("right"):
+		if $ArrowAreas/Right.get_overlapping_areas().is_empty():
+			pass # lose condition
+		else:
+			$ArrowAreas/Right.get_overlapping_areas()[0].get_parent().queue_free()
+	if Input.is_action_just_pressed("down"):
+		if $ArrowAreas/Down.get_overlapping_areas().is_empty():
+			pass # lose condition
+		else:
+			$ArrowAreas/Down.get_overlapping_areas()[0].get_parent().queue_free()
+	if Input.is_action_just_pressed("left"):
+		if $ArrowAreas/Left.get_overlapping_areas().is_empty():
+			pass # lose condition
+		else:
+			$ArrowAreas/Left.get_overlapping_areas()[0].get_parent().queue_free()
 
 func schedule(arrow: ARROW, timing: float):
 	var speed = bpm / bpmSpeedFactor
