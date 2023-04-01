@@ -50,7 +50,7 @@ wait 0.5
 send right
 wait 0.5
 send up
-wait 1.5
+wait 1
 send up left
 wait 1
 send down right
@@ -62,7 +62,7 @@ wait 1
 # pow! end of multi-note section
 send up down left right
 message the tempo can change whenever
-wait 2
+wait 2.5
 message so look out!
 wait 2
 message 
@@ -155,3 +155,53 @@ wait 1
 send up right down
 wait 1
 send right down left
+wait 1
+message and we won't be pulling any punches.
+wait 3
+message 
+# funny orchestra hit fast notes section
+bpm 180
+loop 2
+send up
+wait 1
+send right
+wait 1
+# kaboom section
+send down
+bpm 360
+send up
+bpm 180
+# end kaboom section
+wait 2
+send up
+wait 1
+send right
+wait 0.5
+send down
+wait 1
+send right
+wait 0.5
+send up
+wait 1
+end
+send up
+wait 1
+send right
+wait 1
+# kaboom section
+send down
+bpm 360
+send up
+bpm 180
+# end kaboom section
+wait 2
+send up
+wait 1
+send right
+wait 0.5
+send down
+wait 1.5
+send left
+wait 1
+send up right down
+wait 1
