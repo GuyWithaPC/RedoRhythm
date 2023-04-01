@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mqlc5ks7lfx7"]
+[gd_scene load_steps=11 format=3 uid="uid://mqlc5ks7lfx7"]
 
 [ext_resource type="Texture2D" uid="uid://3ppgwf4kudcc" path="res://Sprites/DownArrow.png" id="1_ay44x"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ex4u4"]
@@ -12,6 +12,14 @@ size = Vector2(20, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2a8q"]
 size = Vector2(320, 20)
+
+[sub_resource type="Gradient" id="Gradient_juwuj"]
+offsets = PackedFloat32Array(0, 0.348387, 0.741935, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.392157, 0, 0, 0, 0, 1, 1, 1, 0.219608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eklou"]
+gradient = SubResource("Gradient_juwuj")
+fill_from = Vector2(1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ex4u4")
@@ -96,5 +104,11 @@ offset_top = 104.0
 offset_right = 320.0
 offset_bottom = 130.0
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 10
+offset_right = 320.0
+offset_bottom = 240.0
+texture = SubResource("GradientTexture2D_eklou")
 
 [connection signal="area_entered" from="FailZone" to="." method="_on_fail_zone_area_entered"]
