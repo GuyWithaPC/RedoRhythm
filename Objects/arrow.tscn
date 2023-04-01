@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1423442kogp3"]
+
+[ext_resource type="SpriteFrames" uid="uid://r2y26k78knfj" path="res://Sprites/arrowSprites.tres" id="1_8q63i"]
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="2_subum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jt41h"]
+size = Vector2(20, 10)
+
+[node name="arrow" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_8q63i")
+script = ExtResource("2_subum")
+
+[node name="Collider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
+shape = SubResource("RectangleShape2D_jt41h")

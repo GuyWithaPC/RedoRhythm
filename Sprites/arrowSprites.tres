@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://r2y26k78knfj"]
+
+[ext_resource type="Texture2D" uid="uid://ky5wxgwpjqos" path="res://Sprites/UpArrow.png" id="1_i61tr"]
+[ext_resource type="Texture2D" uid="uid://cango46bntqlu" path="res://Sprites/RightArrow.png" id="2_85nba"]
+[ext_resource type="Texture2D" uid="uid://3ppgwf4kudcc" path="res://Sprites/DownArrow.png" id="3_5sgde"]
+[ext_resource type="Texture2D" uid="uid://fyyac8x18s2m" path="res://Sprites/LeftArrow.png" id="4_dbvb3"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i61tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_85nba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5sgde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dbvb3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
