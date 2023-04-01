@@ -16,6 +16,7 @@ size = Vector2(320, 20)
 script = ExtResource("1_ex4u4")
 chartName = "song1"
 debug = true
+debugFastForward = 15.0
 
 [node name="Song" type="AudioStreamPlayer" parent="."]
 

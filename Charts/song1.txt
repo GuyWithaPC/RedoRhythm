@@ -89,15 +89,121 @@ send right
 end
 
 #This is about the 40 second mark in the song
-wait 1
+wait 0.25
 
-loop 6
+loop 4
 send left
 wait 1
 send left
 wait 0.5
 send left
+wait 0.5
+send left
+wait 1
+send left
+wait 1
+end
+
+loop 4
+send left
+send right
+wait 0.5
+send right
+wait 0.5
+send left
+wait 0.5
+send left
+wait 0.5
+send up
+send left
+wait 0.5
+send up
 wait 0.5
 send left
 wait 1
 end
+
+loop 16
+send down
+send right
+send up
+wait 0.5
+send up
+wait 0.5
+send left
+wait 0.5
+send right
+wait 0.5
+end
+
+loop 15
+send up
+send down
+send right
+wait 1
+send left
+wait 0.5
+send right
+wait 0.5
+end
+
+send down
+send right
+send left
+wait 1
+
+send up
+wait 1
+
+loop 4
+send up
+send down
+send right
+wait 1
+send left
+wait 0.5
+send up
+send right
+wait 0.5
+
+send up
+send down
+send right
+wait 1
+send up
+send left
+wait 0.5
+send right
+wait 0.5
+send up
+wait 0.5
+
+send up
+send down
+send right
+wait 1
+send up
+send left
+wait 0.5
+send right
+send up
+wait 0.5
+
+send down
+send right
+wait 0.5
+send up
+wait 0.5
+send left
+wait 0.5
+send right
+end
+
+message Good Job!
+wait 5
+message Enjoy the Music!
+wait 60
+bpm 50
+send up
+
+win
