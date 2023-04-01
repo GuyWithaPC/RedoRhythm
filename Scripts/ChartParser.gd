@@ -41,7 +41,6 @@ func loadChart(chartName: String) -> Dictionary:
 	parsed.right.sort()
 	parsed.up.sort()
 	parsed.down.sort()
-	print_debug(parsed)
 	return parsed
 
 func parseLine(line: String):
