@@ -204,4 +204,60 @@ wait 1.5
 send left
 wait 1
 send up right down
+# now it's the drum solo
+wait 4
+message drum solo!
+wait 3
+message 
 wait 1
+bpm 180
+loop 3
+send up
+wait 0.5
+send down
+wait 0.5
+send down
+wait 0.5
+send up
+wait 0.5
+send down
+wait 0.5
+send down
+wait 0.5
+send down
+wait 0.5
+send down
+wait 1
+send down
+wait 0.5
+send down
+wait 0.5
+send down
+wait 1
+send down
+wait 0.5
+send down
+wait 0.5
+send down
+wait 0.5
+end
+message one more time!
+wait 2
+message 
+wait 2
+bpm 360
+send up down left right
+bpm 90
+wait 2
+loop 3
+send left
+wait 1
+send right
+wait 1
+send up
+wait 1
+send down
+wait 1
+end
+wait 2
+win

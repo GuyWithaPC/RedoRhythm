@@ -38,6 +38,7 @@ const arrowScene = preload("res://Objects/arrow.tscn")
 @export var bpmSpeedFactor: float = 1.5 ## the multiple of bpm that the pixel per second speed is
 @export var chartName: String = "zazie"
 @export var debug: bool = false
+@export var debugFastForward: float = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -120,8 +121,8 @@ func _process(delta):
 		else:
 			$ArrowAreas/Left.get_overlapping_areas()[0].get_parent().kill()
 	if Input.is_action_pressed("debug_fastforward") and debug:
-		Engine.time_scale = 3
-		$Song.pitch_scale = 3.0
+		Engine.time_scale = debugFastForward
+		$Song.pitch_scale = debugFastForward
 	else:
 		Engine.time_scale = 1
 		$Song.pitch_scale = 1.0
