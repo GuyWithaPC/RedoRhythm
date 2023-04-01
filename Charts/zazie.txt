@@ -61,22 +61,27 @@ send down left
 wait 1
 # pow! end of multi-note section
 send up down left right
-wait 4
+wait 2
+message the tempo and speed of the notes\ncan change, so look out!
+wait 2
+message 
+bpm 180
 # silly little muted trumpet solo with interesting note separations
 send left
-wait 1.5
+wait 3
 send left
-wait 0.5
+wait 1
 send down
-wait 0.25
-send right
 wait 0.5
+send right
+wait 1
 send up
-wait 0.5
+wait 1
 send right
-wait 0.25
+wait 0.5
 send up
 # divider
+bpm 90
 wait 1
 send up
 wait 0.25
@@ -96,23 +101,24 @@ send right
 wait 0.25
 send up
 # another divider
-wait 1
+bpm 180
+wait 2
 send right
-wait 0.25
+wait 0.5
 send up
-wait 0.25
+wait 0.5
 send down
-wait 0.5
-send up
-wait 0.25
-send left
-wait 0.5
+wait 1
 send up
 wait 0.5
 send left
-wait 0.5
+wait 1
 send up
-wait 0.25
+wait 1
+send left
+wait 1
+send up
+wait 0.5
 send down left
-wait 0.5
+wait 1
 send up right

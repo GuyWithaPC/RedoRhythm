@@ -2,7 +2,7 @@ song res://Songs/TheCannery.mp3
 bpm 89
 
 # wait for the song to start
-wait 8
+wait 8.5
 # loop 1, just go back and forth with up/down on strong beats
 loop 2
 send up down
@@ -15,7 +15,6 @@ send right
 wait 1
 end
 bpm 178
-wait 0.5
 # mix it up by getting faster and changing to left/right on strong beats
 loop 4
 send up down
@@ -75,3 +74,15 @@ wait 0.5
 send right
 wait 0.5
 send up
+# second part of the melody
+send up
+wait 2
+send up
+wait 0.5
+send up
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send left

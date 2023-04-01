@@ -119,9 +119,17 @@ func _process(delta):
 			reset()
 		else:
 			$ArrowAreas/Left.get_overlapping_areas()[0].get_parent().kill()
+	if Input.is_action_pressed("debug_fastforward") and debug:
+		Engine.time_scale = 3
+		$Song.pitch_scale = 3.0
+	else:
+		Engine.time_scale = 1
+		$Song.pitch_scale = 1.0
+	if Input.is_action_just_pressed("debug_restart") and debug:
+		reset()
 
 func reset():
-	if debug:
+	if debug and !Input.is_action_just_pressed("debug_restart"):
 		return
 	for arrow in get_tree().get_nodes_in_group("arrows"):
 		arrow.reverse()
