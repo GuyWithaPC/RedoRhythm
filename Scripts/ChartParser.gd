@@ -9,7 +9,8 @@ var parsed: Dictionary = {
 	"up":[],
 	"right":[],
 	"down":[],
-	"left":[]
+	"left":[],
+	"messages":{},
 }
 var time: float
 var secondsPerBeat: float
@@ -42,6 +43,14 @@ func parseLine(line: String):
 	var words = line.split(" ")
 	if words.is_empty():
 		return
+	if words[0] == "#":
+		return
+	if words[0] == "message":
+		var message = ""
+		for word in words.slice(1):
+			message += word + " "
+		message.rstrip(" ")
+		parsed.messages[time] = message
 	if words[0].to_lower() == "song":
 		var songName = ""
 		for word in words.slice(1):

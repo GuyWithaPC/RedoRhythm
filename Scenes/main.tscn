@@ -80,7 +80,15 @@ position = Vector2(256, 32)
 shape = SubResource("RectangleShape2D_kuqgn")
 
 [node name="FailZone" type="Area2D" parent="."]
-position = Vector2(160, 0)
+position = Vector2(160, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FailZone"]
 shape = SubResource("RectangleShape2D_m2a8q")
+
+[node name="MessageText" type="Label" parent="."]
+offset_top = 104.0
+offset_right = 320.0
+offset_bottom = 130.0
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="FailZone" to="." method="_on_fail_zone_area_entered"]

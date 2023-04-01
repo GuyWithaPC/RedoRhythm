@@ -1,0 +1,58 @@
+song res://Songs/Zazie.mp3
+bpm 90
+
+message wasd or hjkl controls arrows
+wait 8
+message messing up restarts the level
+wait 4
+message ready?
+wait 2
+message go!
+wait 2
+message 
+loop 3
+send left
+wait 1
+send right
+wait 1
+send up
+wait 1
+send down
+wait 1
+end
+message nice job!
+wait 2
+message now it gets a little harder...
+wait 2
+message 
+send up left
+wait 1
+send down right
+wait 1
+send up right
+wait 1
+send down left
+wait 1
+send up
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 0.5
+send down
+wait 0.5
+send right
+wait 0.5
+send up
+wait 1.5
+send up left
+wait 1
+send down right
+wait 1
+send up right
+wait 1
+send down left
+wait 1
+send up down left right

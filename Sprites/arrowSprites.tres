@@ -1,24 +1,24 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://r2y26k78knfj"]
 
-[ext_resource type="Texture2D" uid="uid://ky5wxgwpjqos" path="res://Sprites/UpArrow.png" id="1_i61tr"]
-[ext_resource type="Texture2D" uid="uid://cango46bntqlu" path="res://Sprites/RightArrow.png" id="2_85nba"]
-[ext_resource type="Texture2D" uid="uid://3ppgwf4kudcc" path="res://Sprites/DownArrow.png" id="3_5sgde"]
-[ext_resource type="Texture2D" uid="uid://fyyac8x18s2m" path="res://Sprites/LeftArrow.png" id="4_dbvb3"]
+[ext_resource type="Texture2D" uid="uid://co8d3pjepenkp" path="res://Sprites/UpArrowFilled.png" id="1_auyre"]
+[ext_resource type="Texture2D" uid="uid://dhuhixcm46dei" path="res://Sprites/RightArrowFilled.png" id="2_1ty3e"]
+[ext_resource type="Texture2D" uid="uid://fw3acg6nt8qp" path="res://Sprites/DownArrowFilled.png" id="3_h3je5"]
+[ext_resource type="Texture2D" uid="uid://cw2xfly0tdtxr" path="res://Sprites/LeftArrowFilled.png" id="4_3ippn"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_i61tr")
+"texture": ExtResource("1_auyre")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_85nba")
+"texture": ExtResource("2_1ty3e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_5sgde")
+"texture": ExtResource("3_h3je5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_dbvb3")
+"texture": ExtResource("4_3ippn")
 }],
 "loop": true,
 "name": &"default",
