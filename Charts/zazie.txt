@@ -1,6 +1,7 @@
 song res://Songs/Zazie.mp3
 bpm 90
 
+# waiting for the song to start
 message wasd or hjkl controls arrows
 wait 8
 message messing up restarts the level
@@ -9,7 +10,9 @@ message ready?
 wait 2
 message go!
 wait 2
+# space after message clears the message
 message 
+# just a basic beat-following loop
 loop 3
 send left
 wait 1
@@ -25,6 +28,7 @@ wait 2
 message now it gets a little harder...
 wait 2
 message 
+# now basic beat following but with multiple notes
 send up left
 wait 1
 send down right
@@ -55,4 +59,60 @@ send up right
 wait 1
 send down left
 wait 1
+# pow! end of multi-note section
 send up down left right
+wait 4
+# silly little muted trumpet solo with interesting note separations
+send left
+wait 1.5
+send left
+wait 0.5
+send down
+wait 0.25
+send right
+wait 0.5
+send up
+wait 0.5
+send right
+wait 0.25
+send up
+# divider
+wait 1
+send up
+wait 0.25
+send left
+wait 0.25
+send up
+wait 0.25
+send left
+wait 0.25
+send up
+wait 0.5
+send down
+wait 0.5
+send up
+wait 0.5
+send right
+wait 0.25
+send up
+# another divider
+wait 1
+send right
+wait 0.25
+send up
+wait 0.25
+send down
+wait 0.5
+send up
+wait 0.25
+send left
+wait 0.5
+send up
+wait 0.5
+send left
+wait 0.5
+send up
+wait 0.25
+send down left
+wait 0.5
+send up right

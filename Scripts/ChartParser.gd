@@ -2,6 +2,8 @@ extends Object
 
 class_name ChartParser
 
+const DISTANCE = 256
+const bpmSpeedFactor = 1.5
 var file: String
 var parsed: Dictionary = {
 	"song":"",
@@ -11,6 +13,7 @@ var parsed: Dictionary = {
 	"down":[],
 	"left":[],
 	"messages":{},
+	"bpmChanges":{}
 }
 var time: float
 var secondsPerBeat: float
@@ -23,6 +26,7 @@ var loopDict: Dictionary = {
 	"up":[],
 	"down":[]
 }
+var mostRecentBpm: int = 0
 
 func loadTextFile(fileName: String) -> String:
 	return FileAccess.get_file_as_string(fileName)
@@ -58,8 +62,11 @@ func parseLine(line: String):
 		parsed.song = songName
 		return
 	if words[0].to_lower() == "bpm":
-		parsed.bpm = int(words[1])
-		secondsPerBeat = 60.0/parsed.bpm
+		if parsed.bpm == 0: parsed.bpm = int(words[1])
+		mostRecentBpm = int(words[1])
+		print(mostRecentBpm)
+		parsed.bpmChanges[time] = int(words[1])
+		secondsPerBeat = 60.0/int(words[1])
 		return
 	if words[0].to_lower() == "wait":
 		var addTime = float(words[1])*secondsPerBeat
@@ -68,11 +75,13 @@ func parseLine(line: String):
 			loopTimer += addTime
 		return
 	if words[0].to_lower() == "send":
+		var speed = mostRecentBpm / bpmSpeedFactor
+		var correctedTime = time - (DISTANCE / speed)
 		for word in words.slice(1):
 			if !inLoop:
-				parsed[word].append(time)
+				parsed[word].append([correctedTime,speed])
 			else:
-				loopDict[word].append(time)
+				loopDict[word].append([correctedTime,speed])
 		return
 	if words[0].to_lower() == "loop":
 		inLoop = true
@@ -82,13 +91,13 @@ func parseLine(line: String):
 		inLoop = false
 		for i in range(loopTimes):
 			for t in loopDict.up:
-				parsed.up.append(t + loopTimer*i)
+				parsed.up.append([t[0] + loopTimer*i,t[1]])
 			for t in loopDict.down:
-				parsed.down.append(t + loopTimer*i)
+				parsed.down.append([t[0] + loopTimer*i,t[1]])
 			for t in loopDict.left:
-				parsed.left.append(t + loopTimer*i)
+				parsed.left.append([t[0] + loopTimer*i,t[1]])
 			for t in loopDict.right:
-				parsed.right.append(t + loopTimer*i)
+				parsed.right.append([t[0] + loopTimer*i,t[1]])
 		time += loopTimer*(loopTimes-1)
 		loopDict = {
 			"left":[],

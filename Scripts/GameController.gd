@@ -22,6 +22,7 @@ var arrowQueues: Array[Array] = [
 ]
 
 var messageQueue: Dictionary = {}
+var bpmQueue: Dictionary = {}
 
 var chart: Dictionary
 
@@ -36,6 +37,7 @@ const arrowScene = preload("res://Objects/arrow.tscn")
 @export var distance: int = 256 ## the distance from note spawners to notes
 @export var bpmSpeedFactor: float = 1.5 ## the multiple of bpm that the pixel per second speed is
 @export var chartName: String = "zazie"
+@export var debug: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,6 +64,7 @@ func reset_chart():
 	$Song.stream = load(chart.song)
 	bpm = chart.bpm
 	messageQueue = chart.messages
+	bpmQueue = chart.bpmChanges
 	for time in chart.left:
 		schedule(ARROW.LEFT,time)
 	for time in chart.right:
@@ -87,10 +90,11 @@ func _process(delta):
 	time += delta
 	checkMessages(time)
 	for arrow in range(4):
-		if hasSchedule(arrow,time):
+		var schedule = hasSchedule(arrow,time)
+		if schedule != -1:
 			# make a new moving arrow at the corresponding spawner
 			var newArrow = arrowScene.instantiate()
-			newArrow.speed = bpm / bpmSpeedFactor
+			newArrow.speed = schedule
 			add_child(newArrow)
 			newArrow.position = $ArrowSpawners.get_node(arrowNames[arrow]).position
 			newArrow.direction = arrow
@@ -117,31 +121,36 @@ func _process(delta):
 			$ArrowAreas/Left.get_overlapping_areas()[0].get_parent().kill()
 
 func reset():
+	if debug:
+		return
 	for arrow in get_tree().get_nodes_in_group("arrows"):
 		arrow.reverse()
 	$Song.stop()
 	reversing = true
 	
 
-func schedule(arrow: ARROW, timing: float):
-	var speed = bpm / bpmSpeedFactor
-	var correctedTiming = timing - (distance / speed)
-	arrowQueues[arrow].append(correctedTiming)
+func schedule(arrow: ARROW, timing: Array):
+	var speed = timing[1]
+	arrowQueues[arrow].append(timing)
 
-func hasSchedule(arrow: ARROW, currentTime: float) -> bool:
+func hasSchedule(arrow: ARROW, currentTime: float) -> float:
 	if arrowQueues[arrow].is_empty():
-		return false
-	if arrowQueues[arrow][0] <= (currentTime + fudgeThreshold):
-		arrowQueues[arrow].pop_front()
-		return true
-	return false
+		return -1
+	if arrowQueues[arrow][0][0] <= (currentTime + fudgeThreshold):
+		return arrowQueues[arrow].pop_front()[1]
+	return -1
 
 func checkMessages(currentTime: float):
 	for key in messageQueue.keys():
 		if key <= (currentTime + fudgeThreshold):
 			$MessageText.text = messageQueue[key]
 			messageQueue.erase(key)
-			print(messageQueue)
+
+func checkBPM(currentTime: float):
+	for key in bpmQueue.keys():
+		if key <= (currentTime + fudgeThreshold):
+			bpm = bpmQueue[key]
+			bpmQueue.erase(key)
 
 
 func _on_fail_zone_area_entered(area):
