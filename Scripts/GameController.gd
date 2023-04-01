@@ -82,6 +82,8 @@ func _process(delta):
 	if won:
 		return
 	if reversing:
+		if !$RewindTime.playing:
+			$RewindTime.play()
 		time -= delta*reverse_speed
 		reverse_speed *= pow(2.0,delta)
 		if time <= 0:
@@ -90,6 +92,7 @@ func _process(delta):
 			reset_chart()
 	else:
 		reverse_speed = 5
+		$RewindTime.stop()
 	# do arrow spawning stuff
 	time += delta
 	checkMessages(time)
