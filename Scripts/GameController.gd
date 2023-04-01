@@ -29,6 +29,7 @@ var chart: Dictionary
 var time: float = 0.0
 var reversing: bool = false
 var reverse_speed: float = 3.0
+var won: bool = false
 
 const arrowScene = preload("res://Objects/arrow.tscn")
 
@@ -78,6 +79,8 @@ func reset_chart():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if won:
+		return
 	if reversing:
 		time -= delta*reverse_speed
 		reverse_speed *= pow(2.0,delta)
@@ -90,6 +93,10 @@ func _process(delta):
 	# do arrow spawning stuff
 	time += delta
 	checkMessages(time)
+	if checkWin(time):
+		won = true
+		$Song.stop()
+		$MessageText.text = "You Win!"
 	for arrow in range(4):
 		var schedule = hasSchedule(arrow,time)
 		if schedule != -1:
@@ -161,6 +168,8 @@ func checkBPM(currentTime: float):
 			bpm = bpmQueue[key]
 			bpmQueue.erase(key)
 
+func checkWin(currentTime: float) -> bool:
+	return currentTime >= chart.winTime
 
 func _on_fail_zone_area_entered(area):
 	if !reversing:
