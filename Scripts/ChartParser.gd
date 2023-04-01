@@ -14,7 +14,7 @@ var parsed: Dictionary = {
 	"left":[],
 	"messages":{},
 	"bpmChanges":{},
-	"winTime":{}
+	"winTime":0
 }
 var time: float
 var secondsPerBeat: float
