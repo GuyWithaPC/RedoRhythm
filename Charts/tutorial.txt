@@ -61,8 +61,9 @@ send down left
 wait 1
 # pow! end of multi-note section
 send up down left right
+message the tempo can change whenever
 wait 2
-message the tempo and speed of the notes\ncan change, so look out!
+message so look out!
 wait 2
 message 
 bpm 180
@@ -122,3 +123,35 @@ wait 0.5
 send down left
 wait 1
 send up right
+# boioioing
+bpm 90
+wait 1
+message so yeah, you'll be restarting a LOT.
+wait 3
+message 
+# second little singing bit
+send up
+wait 1.5
+send right
+wait 0.5
+send down
+wait 1
+send left
+wait 1
+send down left
+wait 1.5
+send right down
+wait 0.5
+send down left
+wait 1
+send up right
+wait 1
+send right down
+wait 1.5
+send down
+wait 0.5
+send left
+wait 1
+send up right down
+wait 1
+send right down left
