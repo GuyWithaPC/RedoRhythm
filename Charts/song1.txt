@@ -41,6 +41,9 @@ wait 1
 send up
 wait 1
 
+#This is about the 25 second mark
+#Everything between 0:25 and 0:40 can basically be reused for 1:30-1:50
+
 loop 4
 send up
 send down
@@ -86,3 +89,15 @@ send right
 end
 
 #This is about the 40 second mark in the song
+wait 1
+
+loop 6
+send left
+wait 1
+send left
+wait 0.5
+send left
+wait 0.5
+send left
+wait 1
+end
