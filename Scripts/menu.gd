@@ -10,7 +10,7 @@ var playing = false
 var levelCharts = {
 	0: "tutorial",
 	1: "song1",
-	2: "test"
+	2: "rickroll"
 }
 
 # Called when the node enters the scene tree for the first time.
