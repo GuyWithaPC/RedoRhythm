@@ -1,7 +1,11 @@
 song res://Songs/RickRoll.MP3
 bpm 113
+message
+wait 9.416666667 (5 second blanking period)
+
 wait 8
 
+# this loop is the "drum chart"
 loop 3
 send up
 wait 1
@@ -180,65 +184,221 @@ wait 0.5
 send up
 wait 1
 send up
-wait 0.75
+wait 0.25
 send left
-wait 0.25
-send up
-wait 0.25
-send right
 wait 0.5
 send right
 wait 0.25
 send up
 wait 0.25
-send down
+send right
 wait 0.5
-send left
+send down
 wait 0.25
 send up
-wait 0.75
-send down
 wait 0.25
+send left
+wait 0.75
 # Top of the drum chart
 send up
-wait 0.75
-send right
 wait 0.25
+send down
+wait 0.75
 send up
-wait 0.75
-send right
 wait 0.25
+send right
+wait 0.75
+send up
+wait 0.25
+send right
+wait 0.75
+send up
+wait 0.5
+send up
+wait 0.5
 send up
 wait 1
 send up
-wait 0.5
-send up
-wait 0.5
-send up
-wait 0.75
+wait 0.25
 
 message Gotta make you understand
 send down
-wait 0.25
-send up
-wait 0.25
-send down
 wait 0.5
-send left
+send down
 wait 0.25
 send up
+wait 0.25
+send left
 wait 0.75
-send right
-wait 0.25
 send up
 wait 0.25
+send right
+wait 0.5
 send left
 wait 0.25
 send down
-wait 0.5
-send right
 # top of the drum chart
 send up
+wait 0.5
+send right
+
+wait 0.5
+send up
+wait 1
+
+message Never gonna give you up
+send down
+send up
+wait 0.5
+send down
+wait 0.5
+send left
+send up
+wait 0.5
+send left
+send up
+wait 0.5
+send right
+send up
+wait 0.5
+send down
+wait 0.5
+send up
+send left
+wait 1
+
+message Never gonna let you down
+send down
+send up
+wait 0.5
+send down
+wait 0.5
+send left
+send up
+wait 0.5
+send left
+wait 0.5
+# Top of the drum chart
+send up
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+send up
+wait 1
+
+message Never gonna run around and desert you
+send down
+send up
+wait 0.5
+send down
+wait 0.5
+send left
+send up
+wait 0.5
+send left
+send up
+wait 0.5
+send right
+send up
+wait 1
+send down
+send up
+wait 1
+send down
+send up
+wait 0.5
+send left
+wait 0.5
+send right
+send up
+wait 0.5
+send right
+wait 0.5
+# top of the drum chart (note, the second portion of the chorus is just copied over, so it breaks the loop)
+send up
+send left
+wait 0.5
+send up
+wait 1
+
+message Never gonna make you cry
+send down
+send up
+wait 0.5
+send down
+wait 0.5
+send left
+send up
+wait 0.5
+send left
+send up
+wait 0.5
+send right
+send up
+wait 0.5
+send down
+wait 0.5
+send up
+send left
+wait 1
+
+message Never gonna say goodbye
+send down
+send up
+wait 0.5
+send down
+wait 0.5
+send left
+send up
+wait 0.5
+send left
+wait 0.5
+# Top of the drum chart
+send up
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+send up
+wait 1
+
+message Never gonna tell a lie and hurt you
+send down
+send up
+wait 0.5
+send down
+wait 0.5
+send left
+send up
+wait 0.5
+send left
+send up
+wait 0.5
+send right
+send up
+wait 1
+send down
+send up
+wait 1
+send down
+send up
+wait 0.5
+send left
+wait 0.5
+send right
+send up
+wait 0.5
+send right
+wait 0.5
+# top of the drum chart (note, the second portion of the chorus is just copied over, so it breaks the loop)
+send up
+send left
+wait 0.5
+send up
+wait 1
 
 wait 100000
 win
