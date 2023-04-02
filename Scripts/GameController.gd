@@ -120,7 +120,7 @@ func _process(delta):
 			$Arrows.get_node(dir).position.y = lerp($Arrows.get_node(dir).position.y,32.0,delta*10)
 	# do arrow removing stuff
 	for dir in ["up","right","down","left"]:
-		if Input.is_action_pressed(dir):
+		if Input.is_action_just_pressed(dir):
 			var arrowsInDir = get_tree().get_nodes_in_group(dir)
 			if arrowsInDir.is_empty():
 				reset()
