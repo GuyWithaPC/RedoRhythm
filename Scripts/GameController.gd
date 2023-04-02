@@ -79,9 +79,11 @@ func reset_chart():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$ForegroundLight.self_modulate = lerp($ForegroundLight.self_modulate,Color.WHITE,delta)
 	if won:
 		return
 	if reversing:
+		$ForegroundLight.self_modulate = lerp(Color.RED,Color.WHITE,1-(time/chart.winTime))
 		if !$RewindTime.playing:
 			$RewindTime.play()
 		time -= delta*reverse_speed
@@ -140,12 +142,15 @@ func _process(delta):
 		reset()
 
 func reset():
-	if debug and !Input.is_action_just_pressed("debug_restart"):
-		return
-	for arrow in get_tree().get_nodes_in_group("arrows"):
-		arrow.reverse()
-	$Song.stop()
-	reversing = true
+	if !reversing:
+		if debug and !Input.is_action_just_pressed("debug_restart"):
+			return
+		for arrow in get_tree().get_nodes_in_group("arrows"):
+			arrow.reverse()
+		$Song.stop()
+		$MessUp.play()
+		#$ForegroundLight.self_modulate = Color.RED
+		reversing = true
 	
 
 func schedule(arrow: ARROW, timing: Array):
