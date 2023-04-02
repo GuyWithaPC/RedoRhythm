@@ -83,6 +83,8 @@ func _process(delta):
 	if won:
 		return
 	if reversing:
+		if chartName == "rickroll":
+			$RickrollVideo.stop()
 		$ForegroundLight.self_modulate = lerp(Color.RED,Color.WHITE,1-(time/chart.winTime))
 		if !$RewindTime.playing:
 			$RewindTime.play()
@@ -91,6 +93,7 @@ func _process(delta):
 		if time <= 0:
 			time = 0
 			reversing = false
+			$RickrollTimer.start()
 			reset_chart()
 	else:
 		reverse_speed = 5
@@ -176,3 +179,7 @@ func checkWin(currentTime: float) -> bool:
 func _on_fail_zone_area_entered(area):
 	if !reversing:
 		reset()
+
+
+func _on_rickroll_timer_timeout():
+	$RickrollVideo.play()
