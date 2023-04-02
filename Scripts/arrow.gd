@@ -18,6 +18,7 @@ const particleColor: Array = [
 var reversing = false
 var reverse_speed = 3.0
 var speed_before: float
+var isClickable = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,11 +45,19 @@ func _process(delta):
 	if reversing:
 		speed = -reverse_speed*speed_before
 		reverse_speed *= pow(2.0,delta)
-	var clickable = false
-	for area in $Collider.get_overlapping_areas():
-		if "ArrowAreas" in area.get_parent().name:
-			clickable = true
-	if clickable:
+	if isClickable:
 		$Sprite.modulate = lerp($Sprite.modulate,Color(1.0,1.0,1.0,1.0),delta*abs(speed/5))
 	else:
 		$Sprite.modulate = lerp($Sprite.modulate,Color(1.0,1.0,1.0,0.5),delta*abs(speed/5))
+
+
+func _on_collider_area_entered(area):
+	if area.is_in_group("ArrowAreas"):
+		self.add_to_group(area.get_meta("dir"))
+		isClickable = true
+
+
+func _on_collider_area_exited(area):
+	if area.is_in_group("ArrowAreas"):
+		self.remove_from_group(area.get_meta("dir"))
+		isClickable = false

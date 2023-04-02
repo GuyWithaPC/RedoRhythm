@@ -86,3 +86,4 @@ wait 0.5
 send down
 wait 0.5
 send left
+win
