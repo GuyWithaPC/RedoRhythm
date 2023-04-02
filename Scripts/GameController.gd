@@ -60,6 +60,8 @@ func _ready():
 #	$Song.play()
 
 func reset_chart():
+	if chartName == "rickroll":
+		$RickrollTimer.start()
 	var parser = ChartParser.new()
 	chart = parser.loadChart(chartName)
 	arrowQueues = [[],[],[],[]]
@@ -93,8 +95,6 @@ func _process(delta):
 		if time <= 0:
 			time = 0
 			reversing = false
-			if chartName == "rickroll":
-				$RickrollTimer.start()
 			reset_chart()
 	else:
 		reverse_speed = 5

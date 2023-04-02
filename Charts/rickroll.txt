@@ -2,8 +2,15 @@ song res://Songs/RickRoll.MP3
 bpm 113
 message
 wait 9.416666667 (5 second blanking period)
+send up
+wait 0.5
+send up
+wait 1
+send up
+wait 0.5
+send down
 
-wait 8
+wait 6
 
 # this loop is the "drum chart"
 loop 3
