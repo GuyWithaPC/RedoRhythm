@@ -24,6 +24,7 @@ fill_from = Vector2(1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ex4u4")
+
 chartName = "tutorial"
 
 [node name="Song" type="AudioStreamPlayer" parent="."]
