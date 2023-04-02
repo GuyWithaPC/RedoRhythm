@@ -93,7 +93,8 @@ func _process(delta):
 		if time <= 0:
 			time = 0
 			reversing = false
-			$RickrollTimer.start()
+			if chartName == "rickroll":
+				$RickrollTimer.start()
 			reset_chart()
 	else:
 		reverse_speed = 5
