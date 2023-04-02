@@ -111,6 +111,12 @@ func _process(delta):
 			add_child(newArrow)
 			newArrow.position = $ArrowSpawners.get_node(arrowNames[arrow]).position
 			newArrow.direction = arrow
+	# do animation on the UI arrows
+	for dir in ["Up","Right","Down","Left"]:
+		if Input.is_action_pressed(dir.to_lower()):
+			$Arrows.get_node(dir).position.y = 36.0
+		else:
+			$Arrows.get_node(dir).position.y = lerp($Arrows.get_node(dir).position.y,32.0,delta*10)
 	# do arrow removing stuff
 	if Input.is_action_just_pressed("up"):
 		if $ArrowAreas/Up.get_overlapping_areas().is_empty():
