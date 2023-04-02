@@ -44,3 +44,11 @@ func _process(delta):
 	if reversing:
 		speed = -reverse_speed*speed_before
 		reverse_speed *= pow(2.0,delta)
+	var clickable = false
+	for area in $Collider.get_overlapping_areas():
+		if "ArrowAreas" in area.get_parent().name:
+			clickable = true
+	if clickable:
+		$Sprite.modulate = lerp($Sprite.modulate,Color(1.0,1.0,1.0,1.0),delta*abs(speed/5))
+	else:
+		$Sprite.modulate = lerp($Sprite.modulate,Color(1.0,1.0,1.0,0.5),delta*abs(speed/5))
