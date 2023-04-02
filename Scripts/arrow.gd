@@ -29,6 +29,8 @@ func kill():
 	$Particles.modulate = particleColor[direction]
 	$Particles.emitting = true
 	$Sprite.hide()
+	for dir in ["up","down","left","right"]:
+		self.remove_from_group(dir)
 
 func reverse():
 	if !reversing:
