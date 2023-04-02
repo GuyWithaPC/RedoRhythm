@@ -2,15 +2,22 @@ song res://Songs/RickRoll.MP3
 bpm 113
 message
 wait 9.416666667 (5 second blanking period)
-send up
-wait 0.5
-send up
-wait 1
-send up
-wait 0.5
-send down
 
-wait 6
+bpm 339
+send up
+wait 0.75
+send up
+wait 3
+send up
+wait 0.75
+send right
+wait 2.25
+send down
+wait 0.75
+send left
+bpm 113s
+
+wait 0.75
 
 # this loop is the "drum chart"
 loop 3
@@ -22,7 +29,7 @@ send up
 wait 1
 send up
 wait 0.5
-send up
+send down
 wait 0.5
 
 send up
@@ -42,26 +49,31 @@ wait 1
 send up
 wait 1
 send up
-wait 0.5
+wait 1
+
+send up
+wait 1
+send up
+wait 1
+send up
+wait 1
 send up
 wait 0.5
+send up
+wait 1.75
 
 # 36 beats should be complete at this point
 message We're no strangers to love
 send right
-send up
-wait 1
+wait 0.5
 send left
-send up
 wait 0.5
 send down
 wait 0.5
 send down
-send up
 wait 0.5
 send right
 wait 0.5
-send up
 send left
 wait 1
 #Top of the drum chart
@@ -76,28 +88,19 @@ wait 0.5
 
 message You know the rules, and so do I
 send right
-send up
 wait 0.5
 send down
-send up
 wait 0.5
 send left
 wait 0.5
-send up
 send left
-wait 1
-send up
-wait 0.5
+wait 1.5
 send right
 wait 0.5
-send up
 send down
 wait 0.75
 send left
-wait 0.25
-# Top of the drum chart
-send up
-wait 0.5
+wait 0.75
 send left
 wait 0.5
 send up
@@ -117,22 +120,16 @@ wait 0.5
 send down
 wait 0.5
 send down
-send up
 wait 0.5
 send down
 wait 0.5
 send left
-send up
 wait 0.5
 send left
-wait 0.5
-send up
-wait 0.5
+wait 1
 send right
 wait 0.5
 send down
-# Top of the drum chart
-send up
 wait 0.5
 send left
 wait 0.5
@@ -148,34 +145,25 @@ send down
 send up
 wait 0.5
 send left
-send up
 wait 0.5
 send left
 wait 0.5
 send right
-send up
 wait 0.5
 send down
 wait 0.5
-send up
 send left
 wait 1
 send down
-send up
 wait 0.25
 send down
 wait 0.5
 send right
-wait 0.25
-# Top of the drum chart
-send up
-wait 0.25
+wait 0.5
 send right
 wait 0.5
 send left
-wait 0.25
-send up
-wait 1
+wait 1.25
 send up
 wait 0.75
 
@@ -183,69 +171,42 @@ message I just wanna tell you how I'm feeling
 bpm 452
 send down
 bpm 113
-wait 0.25
-send up
-wait 0.5
-send up
-wait 0.5
-send up
-wait 1
-send up
-wait 0.25
+wait 2.5
 send left
 wait 0.5
 send right
-wait 0.25
-send up
-wait 0.25
+wait 0.5
 send right
 wait 0.5
 send down
-wait 0.25
-send up
-wait 0.25
+wait 0.5
 send left
-wait 0.75
-# Top of the drum chart
-send up
-wait 0.25
-send down
-wait 0.75
-send up
-wait 0.25
-send right
-wait 0.75
-send up
-wait 0.25
-send right
-wait 0.75
-send up
-wait 0.5
-send up
-wait 0.5
-send up
 wait 1
+send down
+wait 1
+send right
+wait 1
+send right
+wait 0.75
 send up
-wait 0.25
+wait 0.5
+send up
+wait 0.5
+send up
+wait 1.25
 
 message Gotta make you understand
 send down
-wait 0.5
+wait 0.25
 send down
-wait 0.25
-send up
-wait 0.25
+wait 0.5
 send left
-wait 0.75
-send up
-wait 0.25
+wait 0.5
 send right
-wait 0.5
+wait 1
 send left
 wait 0.25
 send down
-# top of the drum chart
-send up
 wait 0.5
 send right
 
@@ -255,157 +216,454 @@ wait 1
 
 message Never gonna give you up
 send down
-send up
 wait 0.5
 send down
 wait 0.5
-send left
-send up
-wait 0.5
-send left
-send up
-wait 0.5
-send right
-send up
-wait 0.5
-send down
-wait 0.5
-send up
 send left
 wait 1
+send left
+wait 0.75
+send right
+wait 1.25
 
 message Never gonna let you down
 send down
-send up
 wait 0.5
 send down
 wait 0.5
 send left
-send up
-wait 0.5
-send left
-wait 0.5
-# Top of the drum chart
-send up
-send right
-wait 0.5
-send down
-wait 0.5
-send left
-send up
 wait 1
+send left
+wait 0.75
+send right
+wait 1.25
 
 message Never gonna run around and desert you
 send down
-send up
 wait 0.5
 send down
 wait 0.5
-send left
-send up
-wait 0.5
-send left
-send up
-wait 0.5
 send right
-send up
+wait 1
+send left
+wait 0.5
+send down
 wait 1
 send down
-send up
 wait 1
 send down
-send up
 wait 0.5
 send left
-wait 0.5
+wait 1
 send right
-send up
-wait 0.5
-send right
-wait 0.5
-# top of the drum chart (note, the second portion of the chorus is just copied over, so it breaks the loop)
-send up
-send left
-wait 0.5
+wait 1
+
 send up
 wait 1
 
 message Never gonna make you cry
 send down
-send up
 wait 0.5
 send down
 wait 0.5
-send left
-send up
-wait 0.5
-send left
-send up
-wait 0.5
-send right
-send up
-wait 0.5
-send down
-wait 0.5
-send up
 send left
 wait 1
+send left
+wait 0.75
+send right
+wait 1.25
 
 message Never gonna say goodbye
 send down
-send up
 wait 0.5
 send down
 wait 0.5
 send left
-send up
-wait 0.5
-send left
-wait 0.5
-# Top of the drum chart
-send up
+wait 1
 send right
 wait 0.5
-send down
-wait 0.5
 send left
-send up
+wait 0.5
+send down
 wait 1
 
 message Never gonna tell a lie and hurt you
 send down
-send up
 wait 0.5
 send down
 wait 0.5
-send left
-send up
-wait 0.5
-send left
-send up
-wait 0.5
 send right
-send up
+wait 1
+send left
+wait 0.5
+send down
 wait 1
 send down
-send up
 wait 1
 send down
+wait 0.5
+send left
+wait 1
+send right
+wait 1
+
 send up
+wait 1
+send up
+wait 1
+send up
+wait 0.75
+
+message We've known each other
+send right
+wait 0.5
+send down
+wait 0.5
+send right
+wait 0.5
+send down
 wait 0.5
 send left
 wait 0.5
-send right
-send up
-wait 0.5
-send right
-wait 0.5
-# top of the drum chart (note, the second portion of the chorus is just copied over, so it breaks the loop)
-send up
-send left
-wait 0.5
+
 send up
 wait 1
 
-wait 100000
+message For so long
+send left
+wait 0.5
+send down
+wait 0.5
+send right
+wait 0.5
+
+send up
+wait 1
+send up
+wait 1
+send up
+wait 0.5
+
+message Your heart's been aching but
+send right
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 0.5
+send down
+wait 0.25
+send right
+wait 1
+
+send up
+wait 1
+
+message You're too shy to say it
+send left
+wait 0.5
+send left
+wait 0.5
+send right
+wait 1
+send left
+wait 0.5
+send down
+wait 0.5
+send right
+wait 1
+
+message Inside we both know what's been
+send down
+wait 0.5
+send down
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+
+message Going on
+send left
+wait 0.5
+send down
+wait 0.5
+send right
+wait 1
+
+send up
+wait 1.5
+
+message We know the game and we're
+send right
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 0.5
+send down
+wait 0.5
+send right
+wait 1
+
+send up
+wait 1
+
+message Gonna play it!
+send right
+wait 0.5
+send left
+wait 0.5
+send left
+wait 0.75
+send down
+wait 0.25
+
+send up
+wait 1
+
+message And if you ask me how I'm feeling
+send right
+wait 3
+send down
+wait 0.5
+send left
+wait 0.5
+send down
+wait 1
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 0.5
+send down
+wait 1
+send right
+wait 1
+
+send up
+wait 1
+send up
+wait 0.5
+
+message Don't tell me you're too blind to see
+send right
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 0.5
+send right
+wait 1
+send left
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+
+message Never gonna give you up
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send left
+wait 0.75
+send right
+wait 1.25
+
+message Never gonna let you down
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send left
+wait 0.75
+send right
+wait 1.25
+
+message Never gonna run around and desert you
+send down
+wait 0.5
+send down
+wait 0.5
+send right
+wait 1
+send left
+wait 0.5
+send down
+wait 1
+send down
+wait 1
+send down
+wait 0.5
+send left
+wait 1
+send right
+wait 1
+
+send up
+wait 1
+
+message Never gonna make you cry
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send left
+wait 0.75
+send right
+wait 1.25
+
+message Never gonna say goodbye
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send right
+wait 0.5
+send left
+wait 0.5
+send down
+wait 1
+
+message Never gonna tell a lie and hurt you
+send down
+wait 0.5
+send down
+wait 0.5
+send right
+wait 1
+send left
+wait 0.5
+send down
+wait 1
+send down
+wait 1
+send down
+wait 0.5
+send left
+wait 1
+send right
+wait 1
+
+send up
+wait 1
+
+# round 2
+
+message Never gonna give you up
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send left
+wait 0.75
+send right
+wait 1.25
+
+message Never gonna let you down
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send left
+wait 0.75
+send right
+wait 1.25
+
+message Never gonna run around and desert you
+send down
+wait 0.5
+send down
+wait 0.5
+send right
+wait 1
+send left
+wait 0.5
+send down
+wait 1
+send down
+wait 1
+send down
+wait 0.5
+send left
+wait 1
+send right
+wait 1
+
+send up
+wait 1
+
+message Never gonna make you cry
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send left
+wait 0.75
+send right
+wait 1.25
+
+message Never gonna say goodbye
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send right
+wait 0.5
+send left
+wait 0.5
+send down
+wait 1
+
+message Never gonna tell a lie and hurt you
+send down
+wait 0.5
+send down
+wait 0.5
+send right
+wait 1
+send left
+wait 0.5
+send down
+wait 1
+send down
+wait 1
+send down
+wait 0.5
+send left
+wait 1
+send right
+wait 3
+
 win

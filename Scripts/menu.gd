@@ -49,3 +49,9 @@ func _on_win_timer_timeout():
 	currentLevel.queue_free()
 	$UI.show()
 	$UI/Menu/LevelList.grab_focus()
+
+func end_level():
+	playing = false
+	currentLevel.queue_free()
+	$UI.show()
+	$UI/Menu/LevelList.grab_focus()

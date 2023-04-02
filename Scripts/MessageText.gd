@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.scale = lerp(self.scale,Vector2(1.0,1.0),delta*10)
+	self.scale = lerp(self.scale,Vector2(1.0,1.0),delta*25)
 
 func setText(newText: String):
 	self.text = newText

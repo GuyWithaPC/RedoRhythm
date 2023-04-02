@@ -27,7 +27,7 @@ fill_from = Vector2(1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ex4u4")
-debug = true
+debugFastForward = 10.0
 
 [node name="RickrollTimer" type="Timer" parent="."]
 wait_time = 5.0

@@ -130,6 +130,8 @@ func _process(delta):
 				reset()
 			else:
 				arrowsInDir[0].kill()
+	if Input.is_action_just_pressed("exit"):
+		get_parent().end_level()
 	if Input.is_action_pressed("debug_fastforward") and debug:
 		Engine.time_scale = debugFastForward
 		$Song.pitch_scale = debugFastForward
