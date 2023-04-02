@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://buu04wc61rjaa"]
+
+[node name="list" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 104.0
+item_count = 3
+item_0/text = "item 1"
+item_1/text = "item 2"
+item_2/text = "item 3"

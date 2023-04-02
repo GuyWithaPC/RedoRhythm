@@ -37,7 +37,7 @@ const arrowScene = preload("res://Objects/arrow.tscn")
 @export var fudgeThreshold: float = 0.0 ## the "fudge factor" (how much leeway to give note generation)
 @export var distance: int = 256 ## the distance from note spawners to notes
 @export var bpmSpeedFactor: float = 1.5 ## the multiple of bpm that the pixel per second speed is
-@export var chartName: String = "zazie"
+@export var chartName: String = "tutorial"
 @export var debug: bool = false
 @export var debugFastForward: float = 5.0
 
@@ -98,10 +98,11 @@ func _process(delta):
 	# do arrow spawning stuff
 	time += delta
 	checkMessages(time)
-	if checkWin(time):
+	if checkWin(time) and !won:
 		won = true
 		$Song.stop()
-		$MessageText.text = "You Win!"
+		$UI/MessageText.setText("You Win!")
+		$Win.play()
 	for arrow in range(4):
 		var schedule = hasSchedule(arrow,time)
 		if schedule != -1:
@@ -118,26 +119,13 @@ func _process(delta):
 		else:
 			$Arrows.get_node(dir).position.y = lerp($Arrows.get_node(dir).position.y,32.0,delta*10)
 	# do arrow removing stuff
-	if Input.is_action_just_pressed("up"):
-		if $ArrowAreas/Up.get_overlapping_areas().is_empty():
-			reset()
-		else:
-			$ArrowAreas/Up.get_overlapping_areas()[0].get_parent().kill()
-	if Input.is_action_just_pressed("right"):
-		if $ArrowAreas/Right.get_overlapping_areas().is_empty():
-			reset()
-		else:
-			$ArrowAreas/Right.get_overlapping_areas()[0].get_parent().kill()
-	if Input.is_action_just_pressed("down"):
-		if $ArrowAreas/Down.get_overlapping_areas().is_empty():
-			reset()
-		else:
-			$ArrowAreas/Down.get_overlapping_areas()[0].get_parent().kill()
-	if Input.is_action_just_pressed("left"):
-		if $ArrowAreas/Left.get_overlapping_areas().is_empty():
-			reset()
-		else:
-			$ArrowAreas/Left.get_overlapping_areas()[0].get_parent().kill()
+	for dir in ["up","right","down","left"]:
+		if Input.is_action_pressed(dir):
+			var arrowsInDir = get_tree().get_nodes_in_group(dir)
+			if arrowsInDir.is_empty():
+				reset()
+			else:
+				arrowsInDir[0].kill()
 	if Input.is_action_pressed("debug_fastforward") and debug:
 		Engine.time_scale = debugFastForward
 		$Song.pitch_scale = debugFastForward
@@ -173,7 +161,7 @@ func hasSchedule(arrow: ARROW, currentTime: float) -> float:
 func checkMessages(currentTime: float):
 	for key in messageQueue.keys():
 		if key <= (currentTime + fudgeThreshold):
-			$MessageText.text = messageQueue[key]
+			$UI/MessageText.setText(messageQueue[key])
 			messageQueue.erase(key)
 
 func checkBPM(currentTime: float):

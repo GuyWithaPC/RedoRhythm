@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b2vjmuxqo2wpm"]
+
+[ext_resource type="FontFile" uid="uid://cpqoojjelm18f" path="res://Fonts/dogicapixelbold.ttf" id="1_a8ie0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kuyo1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_deg1h"]
+
+[sub_resource type="Gradient" id="Gradient_wwe26"]
+offsets = PackedFloat32Array(0, 0.25, 0.75, 1)
+colors = PackedColorArray(0.984314, 0.94902, 0.211765, 0, 0.984314, 0.94902, 0.211765, 1, 0.6, 0.898039, 0.313726, 1, 0.6, 0.898039, 0.313726, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kaeg2"]
+gradient = SubResource("Gradient_wwe26")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cq8gj"]
+texture = SubResource("GradientTexture2D_kaeg2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ndn3"]
+texture = SubResource("GradientTexture2D_kaeg2")
+
+[resource]
+default_font = ExtResource("1_a8ie0")
+ItemList/colors/guide_color = Color(0.701961, 0.701961, 0.701961, 0)
+ItemList/styles/focus = SubResource("StyleBoxEmpty_kuyo1")
+ItemList/styles/panel = SubResource("StyleBoxEmpty_deg1h")
+ItemList/styles/selected = SubResource("StyleBoxTexture_cq8gj")
+ItemList/styles/selected_focus = SubResource("StyleBoxTexture_5ndn3")

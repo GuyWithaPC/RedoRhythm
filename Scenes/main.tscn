@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://mqlc5ks7lfx7"]
+[gd_scene load_steps=15 format=3 uid="uid://mqlc5ks7lfx7"]
 
 [ext_resource type="Texture2D" uid="uid://3ppgwf4kudcc" path="res://Sprites/DownArrow.png" id="1_ay44x"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ex4u4"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cango46bntqlu" path="res://Sprites/RightArrow.png" id="3_6wq6j"]
 [ext_resource type="AudioStream" uid="uid://cja7uc3uwix73" path="res://Sounds/MessedUp.wav" id="3_ty0di"]
 [ext_resource type="Texture2D" uid="uid://ky5wxgwpjqos" path="res://Sprites/UpArrow.png" id="4_c0bak"]
+[ext_resource type="AudioStream" uid="uid://7msrfkri0ssj" path="res://Sounds/Winning.wav" id="4_elyho"]
+[ext_resource type="Theme" uid="uid://b2vjmuxqo2wpm" path="res://Themes/UITheme.tres" id="9_1fn0f"]
+[ext_resource type="Script" path="res://Scripts/MessageText.gd" id="9_2mn46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuqgn"]
-size = Vector2(20, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2a8q"]
 size = Vector2(320, 20)
@@ -24,8 +26,7 @@ fill_from = Vector2(1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ex4u4")
-
-chartName = "tutorial"
+debug = true
 
 [node name="Song" type="AudioStreamPlayer" parent="."]
 
@@ -36,6 +37,10 @@ volume_db = 10.0
 [node name="MessUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ty0di")
 volume_db = 20.0
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_elyho")
+volume_db = 10.0
 
 [node name="Arrows" type="Control" parent="."]
 layout_mode = 3
@@ -75,26 +80,30 @@ position = Vector2(256, 288)
 
 [node name="ArrowAreas" type="Node2D" parent="."]
 
-[node name="Up" type="Area2D" parent="ArrowAreas"]
+[node name="Up" type="Area2D" parent="ArrowAreas" groups=["ArrowAreas"]]
 position = Vector2(64, 32)
+metadata/dir = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowAreas/Up"]
 shape = SubResource("RectangleShape2D_kuqgn")
 
-[node name="Right" type="Area2D" parent="ArrowAreas"]
+[node name="Right" type="Area2D" parent="ArrowAreas" groups=["ArrowAreas"]]
 position = Vector2(128, 32)
+metadata/dir = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowAreas/Right"]
 shape = SubResource("RectangleShape2D_kuqgn")
 
-[node name="Down" type="Area2D" parent="ArrowAreas"]
+[node name="Down" type="Area2D" parent="ArrowAreas" groups=["ArrowAreas"]]
 position = Vector2(192, 32)
+metadata/dir = "down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowAreas/Down"]
 shape = SubResource("RectangleShape2D_kuqgn")
 
-[node name="Left" type="Area2D" parent="ArrowAreas"]
+[node name="Left" type="Area2D" parent="ArrowAreas" groups=["ArrowAreas"]]
 position = Vector2(256, 32)
+metadata/dir = "left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowAreas/Left"]
 shape = SubResource("RectangleShape2D_kuqgn")
@@ -111,10 +120,25 @@ offset_right = 320.0
 offset_bottom = 240.0
 texture = SubResource("GradientTexture2D_eklou")
 
-[node name="MessageText" type="Label" parent="."]
-offset_top = 104.0
-offset_right = 320.0
-offset_bottom = 130.0
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MessageText" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 2.625
+anchor_right = 7.975
+anchor_bottom = 3.4
+offset_right = 1.0
+pivot_offset = Vector2(160, 15)
+theme = ExtResource("9_1fn0f")
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("9_2mn46")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="FailZone" to="." method="_on_fail_zone_area_entered"]
