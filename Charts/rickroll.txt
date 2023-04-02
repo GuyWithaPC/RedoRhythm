@@ -1,0 +1,121 @@
+song res://Songs/RickRoll.MP3
+bpm 113
+wait 36
+
+message We're no strangers to love
+send right
+wait 1
+send left
+wait 0.5
+send down
+wait 0.5
+send down
+wait 0.5
+send right
+wait 0.5
+send left
+wait 4.5
+
+message You know the rules, and so do I
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 0.5
+send left
+wait 1.5
+send right
+wait 0.5
+send down
+wait 0.75
+send left
+wait 0.75
+send left
+wait 3
+
+message A full commitment's what I'm thinking of
+send right
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 0.5
+send left
+wait 1
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 3
+
+message You wouldn't get this from any other guy
+send down
+wait 0.5
+send left
+wait 0.5
+send left
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send down
+wait 0.25
+send down
+wait 0.5
+send right
+wait 0.5
+send right
+wait 0.5
+send left
+wait 2
+
+message I just wanna tell you how I'm feeling
+bpm 452
+send down
+bpm 113
+wait 2.5
+send left
+wait 0.5
+send right
+wait 0.5
+send right
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send down
+wait 1
+send right
+wait 1
+send right
+wait 3
+
+message Gotta make you understand
+send down
+wait 0.5
+send down
+wait 0.5
+send left
+wait 1
+send right
+wait 0.5
+send left
+wait 0.25
+send down
+wait 0.5
+send right
+
+wait 100000
+win
