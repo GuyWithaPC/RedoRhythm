@@ -18,6 +18,7 @@ script = ExtResource("2_subum")
 shape = SubResource("RectangleShape2D_jt41h")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+z_index = -1
 sprite_frames = ExtResource("1_8q63i")
 
 [node name="Particles" type="CPUParticles2D" parent="."]

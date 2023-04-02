@@ -79,9 +79,13 @@ func reset_chart():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$ForegroundLight.self_modulate = lerp($ForegroundLight.self_modulate,Color.WHITE,delta)
 	if won:
 		return
 	if reversing:
+		$ForegroundLight.self_modulate = lerp(Color.RED,Color.WHITE,1-(time/chart.winTime))
+		if !$RewindTime.playing:
+			$RewindTime.play()
 		time -= delta*reverse_speed
 		reverse_speed *= pow(2.0,delta)
 		if time <= 0:
@@ -90,6 +94,7 @@ func _process(delta):
 			reset_chart()
 	else:
 		reverse_speed = 5
+		$RewindTime.stop()
 	# do arrow spawning stuff
 	time += delta
 	checkMessages(time)
@@ -106,6 +111,12 @@ func _process(delta):
 			add_child(newArrow)
 			newArrow.position = $ArrowSpawners.get_node(arrowNames[arrow]).position
 			newArrow.direction = arrow
+	# do animation on the UI arrows
+	for dir in ["Up","Right","Down","Left"]:
+		if Input.is_action_pressed(dir.to_lower()):
+			$Arrows.get_node(dir).position.y = 36.0
+		else:
+			$Arrows.get_node(dir).position.y = lerp($Arrows.get_node(dir).position.y,32.0,delta*10)
 	# do arrow removing stuff
 	if Input.is_action_just_pressed("up"):
 		if $ArrowAreas/Up.get_overlapping_areas().is_empty():
@@ -137,12 +148,15 @@ func _process(delta):
 		reset()
 
 func reset():
-	if debug and !Input.is_action_just_pressed("debug_restart"):
-		return
-	for arrow in get_tree().get_nodes_in_group("arrows"):
-		arrow.reverse()
-	$Song.stop()
-	reversing = true
+	if !reversing:
+		if debug and !Input.is_action_just_pressed("debug_restart"):
+			return
+		for arrow in get_tree().get_nodes_in_group("arrows"):
+			arrow.reverse()
+		$Song.stop()
+		$MessUp.play()
+		#$ForegroundLight.self_modulate = Color.RED
+		reversing = true
 	
 
 func schedule(arrow: ARROW, timing: Array):
