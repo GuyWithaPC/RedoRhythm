@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://mqlc5ks7lfx7"]
+[gd_scene load_steps=16 format=3 uid="uid://mqlc5ks7lfx7"]
 
 [ext_resource type="Texture2D" uid="uid://3ppgwf4kudcc" path="res://Sprites/DownArrow.png" id="1_ay44x"]
 [ext_resource type="Script" path="res://Scripts/GameController.gd" id="1_ex4u4"]
 [ext_resource type="AudioStream" uid="uid://cw4ahtednc3iu" path="res://Sounds/RewindEffect.wav" id="2_0gkp1"]
 [ext_resource type="Texture2D" uid="uid://fyyac8x18s2m" path="res://Sprites/LeftArrow.png" id="2_n3ihk"]
+[ext_resource type="VideoStream" path="res://rickroll.ogv" id="2_unbon"]
 [ext_resource type="Texture2D" uid="uid://cango46bntqlu" path="res://Sprites/RightArrow.png" id="3_6wq6j"]
 [ext_resource type="AudioStream" uid="uid://cja7uc3uwix73" path="res://Sounds/MessedUp.wav" id="3_ty0di"]
 [ext_resource type="Texture2D" uid="uid://ky5wxgwpjqos" path="res://Sprites/UpArrow.png" id="4_c0bak"]
@@ -27,6 +28,19 @@ fill_from = Vector2(1, 1)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ex4u4")
 debug = true
+
+[node name="RickrollTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="RickrollVideo" type="VideoStreamPlayer" parent="."]
+self_modulate = Color(0.364706, 0.364706, 0.364706, 1)
+z_index = -50
+offset_left = -80.0
+offset_right = 400.0
+offset_bottom = 288.0
+stream = ExtResource("2_unbon")
+expand = true
 
 [node name="Song" type="AudioStreamPlayer" parent="."]
 
@@ -141,4 +155,5 @@ autowrap_mode = 2
 script = ExtResource("9_2mn46")
 metadata/_edit_use_anchors_ = true
 
+[connection signal="timeout" from="RickrollTimer" to="." method="_on_rickroll_timer_timeout"]
 [connection signal="area_entered" from="FailZone" to="." method="_on_fail_zone_area_entered"]
